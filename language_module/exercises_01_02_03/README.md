@@ -1,6 +1,6 @@
-#Módulo 2 Lenguajes
+# Módulo 2 Lenguajes
 Ejercicios entregables
-##1. Array opera
+## 1. Array opera
 Head
 Implementa una función head (inmutable), tal que, dado un array como entrada extraiga
 y devuelva su primer elemento. Utiliza destructuring.
@@ -28,7 +28,7 @@ const last = (/* array */) => {}; // Implementation here.
 ```
 
 
-##2. Concat
+## 2. Concat
 
 Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada,
 devuelva la concatenación de ambos. Utliza rest / spread operators.
@@ -40,7 +40,7 @@ Implementa una versión del ejercicio anterior donde se acepten múltiples array
 entrada (más de 2)
 
 
-##3. Clone Merge
+## 3. Clone Merge
 Clone
 Implementa una función clone que, a partir de un objeto de entrada source devuelva
 un nuevo objeto con las propiedades de source :
