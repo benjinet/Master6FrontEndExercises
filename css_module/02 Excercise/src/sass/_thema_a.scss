@@ -1,0 +1,102 @@
+@import "https://fonts.googleapis.com/css?family=Aubrey";
+@import "https://fonts.googleapis.com/css?family=Raleway";
+@import "http://fonts.googleapis.com/css?family=Share:400,700";
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700s";
+
+// main
+$mainColor: white;
+
+// secondary
+$secondaryFontFamily: "Raleway";
+$secondaryFontSize: 18px;
+
+// base
+$baseColor: red;
+$baseFontFamily: "Aubrey";
+$baseFontSize: 22px;
+$baseBorder: solid;
+
+// important
+$importantColor: brown;
+$importantFontFamily: "Aubrey";
+$importantFontSize: 22px;
+$importantBorder: solid;
+
+// warning
+$warningColor: #ffccff;
+$warningFontFamily: "Aubrey";
+$warningFontSize: 22px;
+$warningBorder: solid;
+
+@mixin border {
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+}
+
+@mixin default {
+  margin: auto;
+  width: 100px;
+}
+
+@mixin defaultBox {
+  @include border;
+  @include default;
+  padding-top: 4%;
+  padding-left: 3%;
+  padding-bottom: 4%;
+}
+
+// box-shadow
+@mixin boxShadow {
+  @include defaultBox;
+  box-shadow: -10px 15px 5px darkslategray;
+}
+
+@mixin mainStyle {
+  @include default;
+  font-family: $baseFontFamily, sans-serif;
+  width: 130px;
+  text-align: justify;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  
+}
+
+@mixin baseStyle {
+  @include defaultBox;
+  background: $baseColor;
+  font-family: $baseFontFamily, sans-serif;
+  font-size: $baseFontSize;
+}
+
+@mixin secondaryStyle {
+    @include default;
+  width: 130px;
+  padding: 0px;
+  text-align: justify;
+  padding-bottom: 2%;
+  font-family: $secondaryFontFamily, sans-serif;
+  font-size: $secondaryFontSize;
+}
+
+@mixin importantStyle {
+  @include defaultBox;
+  background: $importantColor;
+  font-family: $importantFontFamily, sans-serif;
+  font-size: $importantFontSize;
+}
+
+@mixin warningStyle {
+  @include defaultBox;
+  background: $warningColor;
+  font-family: $warningFontFamily, sans-serif;
+  font-size: $warningFontSize;
+}
+
+@mixin boxShadowStyle {
+  @include boxShadow;
+  background: $mainColor;
+  font-family: $baseFontFamily, sans-serif;
+  font-size: 22px;
+}
