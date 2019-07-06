@@ -1,0 +1,16 @@
+{
+  "name": "ejercicio-2",
+  "version": "0.0.1",
+  "description": "Temas",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel ./src/index.html --open"
+  },
+  "author": "Benjamin Ales",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^1.12.3",
+    "sass": "^1.17.4"
+  }
+}
