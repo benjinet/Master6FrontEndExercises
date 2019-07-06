@@ -1,0 +1,32 @@
+@import "thema_a.scss";
+//@import "thema_b.scss";
+
+body {
+  background: $mainColor;
+
+  font-size: $baseFontSize;
+}
+
+.main {
+  @include mainStyle;
+}
+
+.base {
+  @include baseStyle;
+}
+
+.important {
+  @include importantStyle;
+}
+
+.warning {
+  @include warningStyle;
+}
+
+.box-shadow {
+  @include boxShadowStyle;
+}
+
+.secondary {
+  @include secondaryStyle;
+}

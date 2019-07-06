@@ -1,0 +1,34 @@
+@import "mixins.scss";
+
+$colorgreen: #00ff00;
+
+.first_color {
+  @include contenedor_base;
+  @include childDark(red, 1, 4);
+  div:nth-child(5) {
+    background-color: red;
+    @include contenedor_secundario;
+  }
+  @include childLighten(red, 6, 9); 
+}
+
+.second_color {
+    @include contenedor_base;
+    @include childDark($colorgreen, 1, 4);
+    div:nth-child(5) {
+        background-color: $colorgreen;
+        @include contenedor_secundario;
+      }
+    @include childLighten($colorgreen, 6, 9);
+  }
+
+.third_color {
+  @include contenedor_base;
+  @include childDark(blue, 1, 4);
+  div:nth-child(5) {
+    background-color: blue;
+    @include contenedor_secundario;
+  }
+  @include childLighten(blue, 6, 9); 
+}
+
