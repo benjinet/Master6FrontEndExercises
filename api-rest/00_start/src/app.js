@@ -2,14 +2,14 @@ import {
     addCarRows, 
     retrieveCarId, 
     populateEditCarForm,
-    retrieveCarFormEditCarForm,
+    retrieveCarForm,
     cleanTable,
 } from './uiHelpers';
 import { 
    getAllCars,
    getCarById,
    addCar 
-} from './API/carsApi.double';
+} from './API/carsApi';
 
 document.addEventListener('DOMContentLoaded', () => {
     const buttonLoadCars = document.getElementById('loadcars');
@@ -26,14 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
         const carId = retrieveCarId();
         getCarById(carId)
-            .then((r) => populateEditCarForm(r));
+            .then((r) => populateEditCarForm(r))
+
     });
 
     const buttonAddCar = document.getElementById('add');
     buttonAddCar.addEventListener('click', (event) => {
         event.stopPropagation();
         event.preventDefault();
-        const car = retrieveCarFormEditCarForm();
+        const car = retrieveCarForm();
         addCar(car)
             .then((_) => {
                 cleanTable('cars-table');
