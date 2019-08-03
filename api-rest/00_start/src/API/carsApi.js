@@ -40,10 +40,25 @@ export const getCarById = (id) => {
 
 export const addCar = (car) => {
     return new Promise((resolve, _) => {
-        setTimeout(() => {
-            car['car_id'] = (data.length + 1);
-            data.push(car);
-            resolve('ok'); // TODO: Check with browser
-        }, 500);
+        fetch(baseUrl, {
+            method: 'POST', 
+            body: JSON.stringify(car),
+            headers:{
+              'Content-Type': 'application/json'
+            }
+          }).then(res => {
+              if (!res.ok) {
+                res.text().then(msg => console.log(`Error: ${msg}`));
+                reject();
+              } else {
+                res.json().then(data => console.log(data));
+                resolve();
+              }
+            })
+          .catch((error) => {
+              console.log(`Error: ${error}`);
+              reject();
+        });
+         
     });
 };

@@ -13,14 +13,14 @@ const getNextAvailableId = (allCars) => {
 const getCarData = () => (
     JSON.parse(
         fs.readFileSync(
-           path.join(__dirname + dataFile) , 'utf8'
+            path.join(__dirname + dataFile), 'utf8'
         )
     )
 );
 
 const saveCarData = (data) => (
     fs.writeFile(
-        path.join(__dirname + dataFile), 
+        path.join(__dirname + dataFile),
         JSON.stringify(data, null, 4),
         (err) => {
             if (err) {
@@ -29,6 +29,15 @@ const saveCarData = (data) => (
         })
 );
 
+const checkCar = (data) => {
+    const cars = getCarData();
+    return cars.find(
+        (item) =>
+            ((item.name === data.name) && (item.brand === data.brand) && (item.year_release === data.year_release))
+        );
+ 
+}
+
 router.route('/')
     .get((_, res) => {
         const data = getCarData();
@@ -36,17 +45,21 @@ router.route('/')
     })
     .post((req, res) => {
         const data = getCarData();
-        const nextId = getNextAvailableId(data);
-        const newCar = {
-            car_id: nextId,
-            name: req.body.name,
-            brand: req.body.brand,
-            year_release: req.body.year_release
-        };
-        data.push(newCar);
-        saveCarData(data);
+        if (!checkCar(req.body)) {
+            const nextId = getNextAvailableId(data);
+            const newCar = {
+                car_id: nextId,
+                name: req.body.name,
+                brand: req.body.brand,
+                year_release: req.body.year_release
+            };
+            data.push(newCar);
+            saveCarData(data);
 
-        res.status(201).send(newCar);
+            res.status(201).send(newCar);
+        } else {
+            res.status(409).send(`Conflict, the car already exists`);
+        }
     });
 
 /* GET, PUT and DELETE individual cars */
@@ -57,7 +70,7 @@ router.route('/:id')
             (item) => item.car_id === +req.params.id
         );
 
-        if(!matchingCar) {
+        if (!matchingCar) {
             res.sendStatus(404);
         } else {
             res.send(matchingCar);
@@ -84,7 +97,7 @@ router.route('/:id')
             (item) => item.car_id === req.params.id
         );
 
-        if(!matchingCar) {
+        if (!matchingCar) {
             res.sendStatus(404);
         } else {
             matchingCar.name = req.body.name;

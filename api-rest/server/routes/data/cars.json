@@ -34,5 +34,17 @@
         "name": "Green Roaster",
         "brand": "HMI",
         "year_release": "1976"
+    },
+    {
+        "car_id": 62,
+        "name": "ecosport",
+        "brand": "ford",
+        "year_release": "2017"
+    },
+    {
+        "car_id": 63,
+        "name": "focus",
+        "brand": "ford",
+        "year_release": "2018"
     }
 ]
