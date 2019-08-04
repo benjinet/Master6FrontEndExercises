@@ -1,26 +1,28 @@
 :root {
   height: 100%;
   width: 100%;
+  min-width: 320px;
+  min-height: 568px;
 }
 body {
   font-family: sans-serif;
 }
 
 div.flex-container {
+  font-size: 20px;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: row;
-  flex-basis: 200px;
-  justify-content: space-around;
-  min-height: 100%;
-  min-width: 100%;
+
+
+  max-width: 100%;
+  
 }
 
 div.flex-container2 {
   display: flex;
   flex-direction: row;
-  min-height: 100%;
 }
 
 .section {
@@ -32,15 +34,18 @@ div.flex-container2 {
 }
 
 .flex-container div:first-child {
+  flex-basis: 100px;
   flex-grow: 1;
 }
 
 .flex-container div:nth-child(2) {
+  flex-basis: 100px;
   flex-shrink: 10;
   text-align: center;
 }
 
 .flex-container div:nth-child(3) {
+  flex-basis: 100px;
   text-align: end;
   flex-grow: 1;
 }
@@ -58,8 +63,20 @@ div.flex-container2 {
 }
 
 
-@media (max-width: 520px) {
+@media (max-width: 540px) {
     .section-2{
         display: none;
     }
+    .flex-1 {
+ 
+      font-size: 8px;
+    }
+}
+
+@media (min-width: 540px) {
+
+  .flex-2 {
+ 
+    font-size: 15px;
+  }
 }
