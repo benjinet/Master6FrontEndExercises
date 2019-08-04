@@ -69,7 +69,7 @@ export const addCar = (car) => {
 ```
 
 - Edit _src/API/carsApi.js_ to implent functions above with _axios_ or _native fetch_ or _XMLHttpRequest_
-
+PD: I've used _native fetch_ 
 
 - Hints:
 
