@@ -1,0 +1,12 @@
+{
+  "name": "04_read_books",
+  "version": "0.0.1",
+  "description": "Exercise 04 read books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "author": "Benji Ales",
+  "license": "ISC"
+}
