@@ -2,11 +2,14 @@
   "name": "04_read_books",
   "version": "0.0.1",
   "description": "Exercise 04 read books",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "build": "tsc ./src/index.ts"
   },
   "author": "Benji Ales",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+
+  }
 }
