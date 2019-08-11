@@ -10,6 +10,6 @@
   "author": "Benji Ales",
   "license": "ISC",
   "devDependencies": {
-
+    "typescript": "^3.5.3"
   }
 }
