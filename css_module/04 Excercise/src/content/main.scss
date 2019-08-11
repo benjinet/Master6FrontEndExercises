@@ -1,0 +1,49 @@
+@import "layout.scss";
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-display {
+    flex-grow: 1;
+}
+
+.header {
+    grid-area: header;
+    background-color: pink;
+}
+
+.articles {
+    grid-area: articles;
+    background-color: yellow;
+}
+
+.regular {
+    grid-area: regular;
+    background-color: blue;
+}
+
+@media screen and (min-width: 70rem) {
+    .main-content {
+        @include max-full-resolution;
+    }
+}
+
+@media screen and (max-width: 70rem) and (min-width: 48rem) {
+    .main-content {
+        @include full-resolution;
+    }
+}
+
+@media screen and (max-width: 47.9rem)  and (min-width: 30rem) {
+ 
+        @include medium-resolution;
+    
+}
+
+
+@media screen and (max-width: 29.9rem) {
+    @include small-resolution;
+}
