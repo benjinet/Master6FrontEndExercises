@@ -1,0 +1,15 @@
+{
+  "name": "04_read_books",
+  "version": "0.0.1",
+  "description": "Exercise 04 read books",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "build": "tsc ./src/index.ts"
+  },
+  "author": "Benji Ales",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
+}
