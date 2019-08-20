@@ -4,18 +4,30 @@ import { memberAPI } from '../../api/memberAPI';
 import { MemberRow } from './memberRow';
 import { MemberHead } from './memberHead';
 
-interface Props {}
+
+
+interface Props {
+  initialOrganization: string;
+  onOrganizationUpdated: (newOrganization: string) => any;
+}
 
 export const MembersTableComponent: React.StatelessComponent<Props> = props => {
   const [members, setMembers] = React.useState([] as MemberEntity[]);
 
-  const loadMembers = () => {
-    memberAPI.getAllMembers('lemoncode').then(members => setMembers(members));
-  };
+  const [editingOrganization, setEditingOrganization] = React.useState(props.initialOrganization);
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditingOrganization(e.target.value);
+  }
+  const loadMembers = () => {
+    memberAPI.getAllMembers(editingOrganization).then(members => setMembers(members));
+  };
+  console.log(editingOrganization);
   return (
     <div className="row">
       <h2> Members Page</h2>
+      <label>Organization: </label>
+      <input value={editingOrganization} onChange={onChange} />
       <button onClick={loadMembers}>Load</button>
       <table className="table">
         <thead>
