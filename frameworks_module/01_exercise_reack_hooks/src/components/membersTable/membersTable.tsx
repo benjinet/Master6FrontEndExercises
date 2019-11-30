@@ -11,34 +11,56 @@ interface Props {
   onOrganizationUpdated: (newOrganization: string) => any;
 }
 
+const useMemberCollection = () => {
+  const [memberCollection, setMemberCollection] = React.useState<
+    MemberEntity[]
+  >([]);
+
+  const loadMemberCollection = (editingOrganization) => {
+    console.log(editingOrganization);
+    memberAPI.getAllMembers(editingOrganization).then(memberCollection => setMemberCollection(memberCollection)).catch(error => console.error(`Organization number ${editingOrganization} was not found`));
+  };
+
+  return { memberCollection, loadMemberCollection };
+};
+
+
 export const MembersTableComponent: React.StatelessComponent<Props> = props => {
-  const [members, setMembers] = React.useState([] as MemberEntity[]);
+  const { memberCollection, loadMemberCollection } = useMemberCollection();
 
   const [editingOrganization, setEditingOrganization] = React.useState(props.initialOrganization);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditingOrganization(e.target.value);
   }
-  const loadMembers = () => {
+
+  React.useEffect(()=>{
+    console.log(editingOrganization);
+    loadMemberCollection(editingOrganization);
+   },[]);
+  
+/*    const loadMembers = () => {
     memberAPI.getAllMembers(editingOrganization).then(members => setMembers(members));
-  };
-  console.log(editingOrganization);
+  };  */
+  
   return (
     <div className="row">
       <h2> Members Page</h2>
       <label>Organization: </label>
-      <input value={editingOrganization} onChange={onChange} />
-      <button onClick={loadMembers}>Load</button>
+      <input value={editingOrganization} onChange={onChange}/>
+      <button onClick={() =>loadMemberCollection(editingOrganization)}>Load</button>
       <table className="table">
         <thead>
           <MemberHead />
         </thead>
         <tbody>
-          {members.map((member: MemberEntity) => (
+          {
+          memberCollection.map((member: MemberEntity) => (
             <MemberRow key={member.id} member={member} />
-          ))}
+          ))
+        }
         </tbody>
       </table>
     </div>
   );
-};
+}

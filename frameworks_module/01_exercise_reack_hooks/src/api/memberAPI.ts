@@ -1,6 +1,8 @@
 import { MemberEntity } from '../model/member';
+import { getMock } from '../model/memberMockData';
+import { promises } from 'dns';
 
-const checkStatus = (response: Response): Promise<Response> => {
+/* const checkStatus = (response: Response): Promise<Response> => {
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response);
   } else {
@@ -20,15 +22,22 @@ const resolveMembers = (data): Promise<MemberEntity[]> => {
   }));
 
   return Promise.resolve(members);
-};
+}; */
 
 const getAllMembers = (organizationName: string): Promise<MemberEntity[]> => {
   const gitHubMembersUrl: string = `https://api.github.com/orgs/${organizationName}/members`;
-
-  return fetch(gitHubMembersUrl)
-    .then(response => checkStatus(response))
-    .then(response => parseJSON(response))
-    .then(data => resolveMembers(data));
+  
+  return getMock(organizationName).then(data => {
+    if (data) {
+      return Promise.resolve(data.member);
+    } else {
+      return Promise.reject('Not found');
+    }
+  });
+  // return fetch(gitHubMembersUrl)
+  //   .then(response => checkStatus(response))
+  //   .then(response => parseJSON(response))
+  //   .then(data => resolveMembers(data));
 };
 
 export const memberAPI = {
