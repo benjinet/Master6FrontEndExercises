@@ -1,9 +1,8 @@
-<h2>Members Page</h2>
-<button (click)="loadMembers()">Load</button>
+<app-member-input  (childEvent)="membersParent=$event"></app-member-input>
 <table>
   <thead app-member-head></thead>
   <tbody>
-    <tr app-member-row [member]="member" *ngFor="let member of members">
+    <tr app-member-row [member]="member" *ngFor="let member of membersParent">
     </tr>
   </tbody>
 </table>
