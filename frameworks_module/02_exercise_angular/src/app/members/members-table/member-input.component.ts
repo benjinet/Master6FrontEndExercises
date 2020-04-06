@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { MemberEntity } from '../models/member.model';
 import { MembersApiService } from '../members-api.service';
 
