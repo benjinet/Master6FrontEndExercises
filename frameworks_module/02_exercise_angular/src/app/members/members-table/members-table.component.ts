@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 import { MemberEntity } from '../models/member.model';
-import { MembersApiService } from '../members-api.service';
+
 
 @Component({
   selector: 'app-members-table',
@@ -9,16 +8,6 @@ import { MembersApiService } from '../members-api.service';
   styles: []
 })
 export class MembersTableComponent {
-  members: MemberEntity[];
-
-  constructor(private membersApi: MembersApiService) { }
-
-  loadMembers() {
-    this.membersApi.getAllMembers('lemoncode')
-      .subscribe(
-        (ms) => this.members = ms,
-        (error) => console.log(error)
-      );
-  }
+   membersParent: MemberEntity[];
 
 }

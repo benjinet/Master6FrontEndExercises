@@ -1,0 +1,7 @@
+
+<h2>Members Page</h2>
+<label>Organization: </label>
+<input type="text" #organizationName value="lemoncode" />
+<button  (click)="loadMembers(organizationName.value)">Load</button>
+<h3>{{organizationName.value}}</h3>
+
