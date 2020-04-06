@@ -17,8 +17,16 @@ export class MemberInputComponent{
   loadMembers(organization:string) {
     this.membersApi.getAllMembers(organization)
       .subscribe(
-        (ms) =>{ this.members = ms;  console.log("organization: ", organization); this.childEvent.emit(ms);},
-        (error) => console.log(error)
+        (ms) =>{
+           this.members = ms;
+           console.log("organization: ", organization);
+           this.childEvent.emit(ms);
+          },
+        (error) => {
+          console.log(error);
+          this.members=[];
+          this.childEvent.emit(this.members);
+        }
       );
 
   }
