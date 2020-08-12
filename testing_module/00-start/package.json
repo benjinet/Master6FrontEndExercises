@@ -9,7 +9,7 @@
     "start:mock-server": "cd ./server && npm start",
     "postinstall": "cd ./server && npm i",
     "test": "jest -c ./config/test/jest.json --verbose",
-    "test:watch": "npm run test -- --watchAll -i"
+    "test:watch": "npm run test -- --watchAll -i --no-cache"
   },
   "author": "",
   "license": "ISC",
