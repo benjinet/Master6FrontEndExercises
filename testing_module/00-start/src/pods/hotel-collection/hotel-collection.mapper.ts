@@ -1,4 +1,4 @@
-import { basePicturesUrl } from 'core';
+import { basePicturesUrl } from '../../core';
 import * as apiModel from './hotel-collection.api';
 import * as viewModel from './hotel-collection.vm';
 
