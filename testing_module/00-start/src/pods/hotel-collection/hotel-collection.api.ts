@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { baseApiUrl } from 'core';
+import { baseApiUrl } from '../../core';
 
 export interface HotelEntityApi {
   id: string;
