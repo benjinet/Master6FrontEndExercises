@@ -13,6 +13,7 @@ const useStyles = makeStyles({
 
 interface Props {
   hotelCollection: HotelEntityVm[];
+  'data-testid'?:string;
 }
 
 export const HotelCollectionComponent: React.FunctionComponent<
@@ -20,11 +21,12 @@ export const HotelCollectionComponent: React.FunctionComponent<
 > = props => {
   const { hotelCollection } = props;
   const classes = useStyles(props);
+  const dataTestIdHotelCard = props['data-testid'];
 
   return (
     <div className={classes.listLayout}>
       {hotelCollection.map(hotel => (
-        <HotelCard key={hotel.id} hotel={hotel} />
+        <HotelCard key={hotel.id} hotel={hotel}  data-testid={dataTestIdHotelCard}/>
       ))}
     </div>
   );
