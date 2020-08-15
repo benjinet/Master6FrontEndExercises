@@ -37,7 +37,6 @@ describe ('common/forms specs', ()=>{
       // arrange
       const props = {
           input: {
-            'data-testid': 'dataInputTestID',
              name: 'test name',
              value: 'test value',
              onChange:  () => { },
@@ -49,11 +48,11 @@ describe ('common/forms specs', ()=>{
             submitError: true,
             touched: true,
           },
-          'data-testid': 'dataTestID',
+
            };
 
       // act
-      const { getByTestId, getByText } = render ( <TextField {...props} />);
+      const {  getByText } = render ( <TextField {...props} />);
 
       // assert
       const mainElement = getByText('error test') as HTMLParagraphElement;
@@ -65,7 +64,6 @@ describe ('common/forms specs', ()=>{
       // arrange
       const props = {
           input: {
-            'data-testid': 'dataInputTestID',
              name: 'test name',
              value: 'test value',
              onChange:  () => { },
@@ -77,11 +75,10 @@ describe ('common/forms specs', ()=>{
             dirtySinceLastSubmit: false,
             touched: true,
           },
-          'data-testid': 'dataTestID',
            };
 
       // act
-      const { getByTestId, getByText } = render ( <TextField {...props} />);
+      const {getByText } = render ( <TextField {...props} />);
 
       // assert
       const mainElement = getByText(props.meta.error) as HTMLParagraphElement;
@@ -105,7 +102,6 @@ describe ('common/forms specs', ()=>{
             dirtySinceLastSubmit: false,
             touched: false,
           },
-          'data-testid': 'dataTestID',
            };
 
       // act

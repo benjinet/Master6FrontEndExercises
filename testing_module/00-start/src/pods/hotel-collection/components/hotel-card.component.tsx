@@ -17,7 +17,10 @@ import {
 
 interface Props {
   hotel: HotelEntityVm;
+  'data-testid'?: string;
 }
+
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   card: {
@@ -30,6 +33,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const HotelCard: React.FunctionComponent<Props> = props => {
   const { hotel } = props;
   const classes = useStyles(props);
+  const cardMediaId = props["data-testid"];
+
 
   return (
     <Card className={classes.card}>
@@ -52,6 +57,7 @@ export const HotelCard: React.FunctionComponent<Props> = props => {
           }}
         >
           <CardMedia
+            data-testid={cardMediaId}
             image={hotel.picture}
             title={hotel.name}
             style={{ height: 0, paddingTop: '56.25%' }}

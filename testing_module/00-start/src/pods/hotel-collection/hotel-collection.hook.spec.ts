@@ -4,7 +4,7 @@ import { useHotelCollection } from './hotel-collection.hook';
 
 describe ('hotel-collection/hook specs', ()=>{
   describe('userHotelCollection', () => {
-    it('should return an array of HotelEntityVm ', async () => {
+    it('should return empty Collection and return a function ', async () => {
       // Arrange
 
       // Act
