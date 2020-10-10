@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, getAllByText } from "@testing-library/react";
+import {render } from "@testing-library/react";
 import { HotelCard } from './hotel-card.component';
 
 describe ('pods/hotel-collection/components specs', ()=>{
